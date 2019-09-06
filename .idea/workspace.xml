@@ -1,14 +1,38 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="0053bf2e-ac06-44e7-83f9-84dd5f17f28b" name="Default Changelist" comment="" />
+    <list default="true" id="0053bf2e-ac06-44e7-83f9-84dd5f17f28b" name="Default Changelist" comment="">
+      <change afterPath="$PROJECT_DIR$/src/com/company/LogicSystem.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Plot.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Position.java" afterDir="false" />
+      <change afterPath="$PROJECT_DIR$/src/com/company/Rendering.java" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/emil_neghbours/com/company/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/emil_neghbours/com/company/Main$1.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/emil_neghbours/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/emil_neghbours/com/company/Main.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/emil_neghbours/com/company/Plot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/emil_neghbours/com/company/Plot.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/out/production/emil_neghbours/com/company/Position.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/emil_neghbours/com/company/Position.class" afterDir="false" />
+      <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
+    </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
     <option name="HIGHLIGHT_CONFLICTS" value="true" />
     <option name="HIGHLIGHT_NON_ACTIVE_CHANGELIST" value="false" />
     <option name="LAST_RESOLUTION" value="IGNORE" />
   </component>
+  <component name="FileTemplateManagerImpl">
+    <option name="RECENT_TEMPLATES">
+      <list>
+        <option value="Class" />
+      </list>
+    </option>
+  </component>
+  <component name="Git.Settings">
+    <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
+  </component>
   <component name="ProjectId" id="1QOJgg3ppZwDsKFCu9KJ7IN1eQ6" />
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../neighbours" />
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -50,5 +74,18 @@
       <updated>1567635821908</updated>
     </task>
     <servers />
+  </component>
+  <component name="Vcs.Log.Tabs.Properties">
+    <option name="TAB_STATES">
+      <map>
+        <entry key="MAIN">
+          <value>
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
+          </value>
+        </entry>
+      </map>
+    </option>
   </component>
 </project>

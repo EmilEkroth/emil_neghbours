@@ -21,12 +21,11 @@ import static java.lang.System.nanoTime;
 public class Main extends Application {
 
     //setup for standard var
-    public static final int worldSide = 50;
+    public static final int worldSide = 500;
     public static final int worldSize = (int)Math.pow(worldSide,2);
-    public static Plot[] world = new Plot[(int)Math.pow(worldSide,2)]; // world var
     public static final int ammountOfTypes = 3;
 
-    public static final int dotSize = 10; // display var
+    public static final int dotSize = 1; // display var
 
     public static final float satisfaction = 0.6f; // needed satisfaction
     public static final int emptyProcent = 5; // the percentage of plots which is set as empty
@@ -35,29 +34,48 @@ public class Main extends Application {
     final long interval = 450000000;
 
     public static void main(String[] args) {
+	launch(args);
+    }
 
-
+    Plot [] InitializeWorld ()
+    {
+        Plot[] world = new Plot[(int)Math.pow(worldSide,2)]; // world var
         System.out.println("side: " + worldSide + " size: " + worldSize + " word.length: " + world.length);
         Random rng = new Random();
+        int n = 0;
         for(int i = 0; i < worldSide; i++)  //initializing world
         {
             for (int j = 0; j < worldSide; j++)
             {
                 int r = rng.nextInt(100);
-                if (r <= emptyProcent) world[(j+1)*(i+1)-1] = new Plot(new Position(i, j), 0);
+                if (r <= emptyProcent) world[n] = new Plot(new Position(i, j), 0);
                 else {
                     int t = rng.nextInt(ammountOfTypes) +1;
-                    world[(j+1)*(i+1)-1] = new Plot(new Position(i, j), t);
+                    world[n] = new Plot(new Position(i, j), t);
                 }
+                n++;
             }
         }
-
-	launch(args);
+        return world;
     }
 
+    Plot[] FindEmpty (Plot[] world)
+    {
+        ArrayList<Plot> empty = new ArrayList<Plot>();
+        for(int i = 0; i < worldSize; i++)
+        {
+            if (world[i].type == 0) empty.add(world[i]);
+        }
+
+        return empty.toArray(new Plot[empty.size()]);
+    }
 
     @Override
     public void start (Stage primaryStage) throws Exception{
+
+        Plot[] world = InitializeWorld();
+        Plot[] emptyPlots = FindEmpty(world);
+
         LogicSystem logS = new LogicSystem();
         Rendering renderer = new Rendering();
         primaryStage.setTitle("neighbours");
@@ -71,7 +89,7 @@ public class Main extends Application {
             public void handle(long currentNanoTime) {
                 long elapsedNanos = currentNanoTime - previousTime;
                 if(elapsedNanos > interval) {
-                    logS.updateWorld(worldSize, satisfaction, world);
+                    logS.updateWorld(worldSide, worldSize, satisfaction, world, emptyPlots);
                     renderer.renderWorld(gc,worldSide, worldSize ,dotSize, world);
                     previousTime = currentNanoTime;
                 }

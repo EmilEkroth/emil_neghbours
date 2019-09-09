@@ -13,7 +13,6 @@ public class Rendering {
 
             g.setFill(world[i].color);
             g.fillOval(x, y, dotSize, dotSize);
-
         }
     }
 }

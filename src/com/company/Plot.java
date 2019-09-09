@@ -17,12 +17,12 @@ class Plot
 
     public void ColorCorrect ()
     {
-        Color[] colors = {Color.WHITE, Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.PINK, Color.VIOLET, Color.GRAY, Color.BROWN};
+        Color[] colors = {Color.WHITE, Color.BLUE, Color.RED, Color.GREEN, Color.GOLD, Color.PINK, Color.VIOLET, Color.GRAY, Color.BROWN};
 
         color = colors[type];
     }
 
-    public boolean isSatisfied (float satisfaction, Plot[] world) // check if plot is satisfied;
+    public boolean isSatisfied (float satisfaction, int worldSide, Plot[] world, int plotIndex) // check if plot is satisfied;
     {
         float avg = 0;
         int n = 0;
@@ -31,15 +31,17 @@ class Plot
             for (int j = position.y -1; j < position.y+2; j++)
             {
                 if (i > -1 && j > -1 //check that i or j isn't outside of world or at object pos
-                        && i < world.length && j < world.length
+                        && i < worldSide && j < worldSide
                         && (i != this.position.x || j != this.position.y)) {
                     // System.out.println("at ("+position.x + ", "+ position.y +") "+ " x: " + i + " y: " + j);
 
-                    if (world[i].type == this.type)
+                    int m = plotIndex + worldSide * (i -  position.x) + (j-position.y);
+
+                    if (world[m].type == this.type)
                     {
                         avg += 1;
                     }
-                    if (world[i].type != 0) //they don't care about empty plots
+                    if (world[m].type != 0) //they don't care about empty plots
                     {
                         n++;
                     }
@@ -55,13 +57,20 @@ class Plot
         }
     }
 
-    public void SwitchPosition (Plot otherPlot) //Easy way to switch plots
+    public Plot[] SwitchPosition (Plot otherPlot, Plot[] emptyPlots) //Easy way to switch plots
     {
         int t = type;
         type=otherPlot.type;
         otherPlot.type = t;
 
+        for(int i = 0; i < emptyPlots.length; i++)
+        {
+            if (emptyPlots[i] == otherPlot) emptyPlots[i] = this;
+        }
+
         ColorCorrect();
         otherPlot.ColorCorrect();
+
+        return emptyPlots;
     }
 }

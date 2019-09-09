@@ -17,12 +17,12 @@ class Plot
 
     public void ColorCorrect ()
     {
-        if (type == 1) color = Color.BLUE; // needs to bee redone if more than 2 types (except empty) exists
-        else if (type == 2) color = Color.RED;
-        else color = Color.WHITE;
+        Color[] colors = {Color.WHITE, Color.BLUE, Color.RED, Color.GREEN, Color.YELLOW, Color.PINK, Color.VIOLET, Color.GRAY, Color.BROWN};
+
+        color = colors[type];
     }
 
-    public boolean isSatisfied (float satisfaction, Plot[][] world) // check if plot is satisfied;
+    public boolean isSatisfied (float satisfaction, Plot[] world) // check if plot is satisfied;
     {
         float avg = 0;
         int n = 0;
@@ -35,11 +35,11 @@ class Plot
                         && (i != this.position.x || j != this.position.y)) {
                     // System.out.println("at ("+position.x + ", "+ position.y +") "+ " x: " + i + " y: " + j);
 
-                    if (world[i][j].type == this.type)
+                    if (world[i].type == this.type)
                     {
                         avg += 1;
                     }
-                    if (world[i][j].type != 0) //they don't care about empty plots
+                    if (world[i].type != 0) //they don't care about empty plots
                     {
                         n++;
                     }

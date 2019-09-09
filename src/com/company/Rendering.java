@@ -1,13 +1,7 @@
 package com.company;
 
-import javafx.animation.AnimationTimer;
-import javafx.scene.Group;
-import javafx.scene.Scene;
-import javafx.scene.canvas.Canvas;
-import javafx.scene.canvas.GraphicsContext;
-import javafx.stage.Stage;
 
-import static java.lang.System.nanoTime;
+import javafx.scene.canvas.GraphicsContext;
 
 public class Rendering {
     public void renderWorld (GraphicsContext g, int worldSize, int dotSize, Plot[][] world) // render world

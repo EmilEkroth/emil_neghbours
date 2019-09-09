@@ -44,10 +44,10 @@ public class Main extends Application {
             for (int j = 0; j < worldSide; j++)
             {
                 int r = rng.nextInt(100);
-                if (r <= emptyProcent) world[j*(i+1)] = new Plot(new Position(i, j), 0);
+                if (r <= emptyProcent) world[(j+1)*(i+1)-1] = new Plot(new Position(i, j), 0);
                 else {
                     int t = rng.nextInt(ammountOfTypes) +1;
-                    world[j*(i+1)] = new Plot(new Position(i, j), t);
+                    world[(j+1)*(i+1)-1] = new Plot(new Position(i, j), t);
                 }
             }
         }

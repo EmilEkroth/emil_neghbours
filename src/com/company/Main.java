@@ -11,6 +11,7 @@ import javafx.stage.Stage;
 import java.util.List;
 import java.util.ArrayList;
 import java.util.Random;
+import java.math.*;
 
 import java.awt.*;
 
@@ -20,8 +21,10 @@ import static java.lang.System.nanoTime;
 public class Main extends Application {
 
     //setup for standard var
-    public static final int worldSize = 50;
-    public static Plot[][] world = new Plot[worldSize][worldSize]; // world var
+    public static final int worldSide = 50;
+    public static final int worldSize = (int)Math.pow(worldSide,2);
+    public static Plot[] world = new Plot[(int)Math.pow(worldSide,2)]; // world var
+    public static final int ammountOfTypes = 3;
 
     public static final int dotSize = 10; // display var
 
@@ -33,16 +36,18 @@ public class Main extends Application {
 
     public static void main(String[] args) {
 
+
+        System.out.println("side: " + worldSide + " size: " + worldSize + " word.length: " + world.length);
         Random rng = new Random();
-        for(int i = 0; i < worldSize; i++)  //initializing world
+        for(int i = 0; i < worldSide; i++)  //initializing world
         {
-            for (int j = 0; j < worldSize; j++)
+            for (int j = 0; j < worldSide; j++)
             {
                 int r = rng.nextInt(100);
-                if (r <= emptyProcent) world[i][j] = new Plot(new Position(i, j), 0);
+                if (r <= emptyProcent) world[j*(i+1)] = new Plot(new Position(i, j), 0);
                 else {
-                    int t = rng.nextInt(2) +1;
-                    world[i][j] = new Plot(new Position(i, j), t);
+                    int t = rng.nextInt(ammountOfTypes) +1;
+                    world[j*(i+1)] = new Plot(new Position(i, j), t);
                 }
             }
         }
@@ -58,7 +63,7 @@ public class Main extends Application {
         primaryStage.setTitle("neighbours");
 
         Group root = new Group();
-        javafx.scene.canvas.Canvas canvas = new Canvas(worldSize * (dotSize), worldSize * (dotSize));
+        javafx.scene.canvas.Canvas canvas = new Canvas(worldSide * (dotSize), worldSide * (dotSize));
         GraphicsContext gc =  canvas.getGraphicsContext2D();
         root.getChildren().addAll(canvas);
 
@@ -67,7 +72,7 @@ public class Main extends Application {
                 long elapsedNanos = currentNanoTime - previousTime;
                 if(elapsedNanos > interval) {
                     logS.updateWorld(worldSize, satisfaction, world);
-                    renderer.renderWorld(gc,worldSize,dotSize, world);
+                    renderer.renderWorld(gc,worldSide, worldSize ,dotSize, world);
                     previousTime = currentNanoTime;
                 }
             }

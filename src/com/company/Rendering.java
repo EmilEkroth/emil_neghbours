@@ -10,17 +10,16 @@ import javafx.stage.Stage;
 import static java.lang.System.nanoTime;
 
 public class Rendering {
-    public void renderWorld (GraphicsContext g, int worldSize, int dotSize, Plot[][] world) // render world
+    public void renderWorld (GraphicsContext g, int worldSide,  int worldSize, int dotSize, Plot[] world) // render world
     {
-        g.clearRect(0, 0, worldSize * (dotSize), worldSize * (dotSize));
+        g.clearRect(0, 0, worldSide * (dotSize), worldSide * (dotSize));
         for (int i = 0; i < worldSize; i++) {
-            for (int j = 0; j < worldSize; j++) {
-                int x = dotSize * j;
-                int y = dotSize * i;
+            int x = dotSize * world[i].position.x;
+            int y = dotSize * world[i].position.y;
 
-                g.setFill(world[i][j].color);
-                g.fillOval(x, y, dotSize, dotSize);
-            }
+            g.setFill(world[i].color);
+            g.fillOval(x, y, dotSize, dotSize);
+
         }
     }
 }

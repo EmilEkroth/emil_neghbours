@@ -3,15 +3,8 @@
   <component name="ChangeListManager">
     <list default="true" id="a9600e3d-b052-4fa1-bee9-c3bd01d5bffd" name="Default Changelist" comment="">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/emil_neghbours/com/company/LogicSystem.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/emil_neghbours/com/company/LogicSystem.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/emil_neghbours/com/company/Main$1.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/emil_neghbours/com/company/Main$1.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/emil_neghbours/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/emil_neghbours/com/company/Main.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/emil_neghbours/com/company/Plot.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/emil_neghbours/com/company/Plot.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/out/production/emil_neghbours/com/company/Rendering.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/emil_neghbours/com/company/Rendering.class" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/LogicSystem.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/LogicSystem.java" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Plot.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Plot.java" afterDir="false" />
-      <change beforePath="$PROJECT_DIR$/src/com/company/Rendering.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Rendering.java" afterDir="false" />
     </list>
     <option name="EXCLUDED_CONVERTED_TO_IGNORED" value="true" />
     <option name="SHOW_DIALOG" value="false" />
@@ -23,6 +16,9 @@
     <option name="RECENT_GIT_ROOT_PATH" value="$PROJECT_DIR$" />
   </component>
   <component name="ProjectId" id="1QcKGKzgfOnQ9OoQzlPTrKEZSpf" />
+  <component name="PropertiesComponent">
+    <property name="last_opened_file_path" value="$PROJECT_DIR$/../neighbours" />
+  </component>
   <component name="RunDashboard">
     <option name="ruleStates">
       <list>
@@ -66,6 +62,13 @@
       <option name="presentableId" value="Default" />
       <updated>1568064348420</updated>
     </task>
+    <task id="LOCAL−00001" summary="Fixade optemeringsproblem, nu kan koden köra 250 000 punkter med 60% satisfaction och 5% emptyslots utan några större problem.">
+      <created>1568067704813</created>
+      <option name="number" value="LOCAL−00001" />
+      <option name="presentableId" value="LOCAL−00001" />
+      <updated>1568067704813</updated>
+    </task>
+    <option name="localTasksCounter" value="2" />
     <servers />
   </component>
   <component name="Vcs.Log.Tabs.Properties">
@@ -78,5 +81,9 @@
         </entry>
       </map>
     </option>
+  </component>
+  <component name="VcsManagerConfiguration">
+    <MESSAGE value="Fixade optemeringsproblem, nu kan koden köra 250 000 punkter med 60% satisfaction och 5% emptyslots utan några större problem." />
+    <option name="LAST_COMMIT_MESSAGE" value="Fixade optemeringsproblem, nu kan koden köra 250 000 punkter med 60% satisfaction och 5% emptyslots utan några större problem." />
   </component>
 </project>

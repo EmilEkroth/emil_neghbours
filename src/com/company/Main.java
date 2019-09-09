@@ -23,7 +23,7 @@ public class Main extends Application {
     //setup for standard var
     public static final int worldSide = 500;
     public static final int worldSize = (int)Math.pow(worldSide,2);
-    public static final int ammountOfTypes = 3;
+    public static final int ammountOfTypes = 2;
 
     public static final int dotSize = 1; // display var
 

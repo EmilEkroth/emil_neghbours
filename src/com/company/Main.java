@@ -87,6 +87,8 @@ public class Main extends Application {
     @Override
     public void start (Stage primaryStage) throws Exception{
 
+        test Test = new test();Test.main();
+
         Plot[] world = InitializeWorld();
         Plot[] emptyPlots = FindEmpty(world);
         world = ShuffleWorld(world, emptyPlots);

@@ -57,7 +57,7 @@ class Plot
         }
     }
 
-    public Plot[] SwitchPosition (Plot otherPlot, Plot[] emptyPlots) //Easy way to switch plots
+    public void SwitchPosition (Plot otherPlot, Plot[] emptyPlots) //Easy way to switch plots
     {
         int t = type;
         type=otherPlot.type;
@@ -70,7 +70,5 @@ class Plot
 
         ColorCorrect();
         otherPlot.ColorCorrect();
-
-        return emptyPlots;
     }
 }

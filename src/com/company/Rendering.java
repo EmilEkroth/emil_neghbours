@@ -4,7 +4,21 @@ package com.company;
 import javafx.scene.canvas.GraphicsContext;
 
 public class Rendering {
-    public void renderWorld (GraphicsContext g, int worldSide,  int worldSize, int dotSize, Plot[] world) // render world
+    int worldSide;
+    int worldSize;
+    int dotSize;
+    Plot[] world;
+
+    Rendering (int newWorldSide,  int newWorldSize, int newDotSize, Plot[] newWorld)
+    {
+        worldSide = newWorldSide;
+        worldSize = newWorldSize;
+        dotSize = newDotSize;
+        world = newWorld;
+    }
+
+
+    public void renderWorld (GraphicsContext g) // render world
     {
         g.clearRect(0, 0, worldSide * (dotSize), worldSide * (dotSize));
         for (int i = 0; i < worldSize; i++) {

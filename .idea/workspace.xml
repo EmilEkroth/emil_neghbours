@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8"?>
 <project version="4">
   <component name="ChangeListManager">
-    <list default="true" id="a9600e3d-b052-4fa1-bee9-c3bd01d5bffd" name="Default Changelist" comment="">
+    <list default="true" id="a9600e3d-b052-4fa1-bee9-c3bd01d5bffd" name="Default Changelist" comment="najs">
       <change beforePath="$PROJECT_DIR$/.idea/workspace.xml" beforeDir="false" afterPath="$PROJECT_DIR$/.idea/workspace.xml" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/out/production/emil_neghbours/com/company/Main.class" beforeDir="false" afterPath="$PROJECT_DIR$/out/production/emil_neghbours/com/company/Main.class" afterDir="false" />
       <change beforePath="$PROJECT_DIR$/src/com/company/Main.java" beforeDir="false" afterPath="$PROJECT_DIR$/src/com/company/Main.java" afterDir="false" />
@@ -17,7 +17,11 @@
   </component>
   <component name="ProjectId" id="1QcKGKzgfOnQ9OoQzlPTrKEZSpf" />
   <component name="PropertiesComponent">
-    <property name="last_opened_file_path" value="$PROJECT_DIR$/../neighbours" />
+    <property name="last_opened_file_path" value="$PROJECT_DIR$" />
+    <property name="project.structure.last.edited" value="Global Libraries" />
+    <property name="project.structure.proportion" value="0.0" />
+    <property name="project.structure.side.proportion" value="0.2" />
+    <property name="settings.editor.selected.configurable" value="vcs.Git" />
   </component>
   <component name="RunDashboard">
     <option name="ruleStates">
@@ -76,7 +80,9 @@
       <map>
         <entry key="MAIN">
           <value>
-            <State />
+            <State>
+              <option name="COLUMN_ORDER" />
+            </State>
           </value>
         </entry>
       </map>
@@ -84,6 +90,8 @@
   </component>
   <component name="VcsManagerConfiguration">
     <MESSAGE value="Fixade optemeringsproblem, nu kan koden köra 250 000 punkter med 60% satisfaction och 5% emptyslots utan några större problem." />
-    <option name="LAST_COMMIT_MESSAGE" value="Fixade optemeringsproblem, nu kan koden köra 250 000 punkter med 60% satisfaction och 5% emptyslots utan några större problem." />
+    <MESSAGE value="nice" />
+    <MESSAGE value="najs" />
+    <option name="LAST_COMMIT_MESSAGE" value="najs" />
   </component>
 </project>

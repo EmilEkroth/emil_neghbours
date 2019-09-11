@@ -21,14 +21,14 @@ import static java.lang.System.nanoTime;
 public class Main extends Application {
 
     //setup for standard var
-    public static final int worldSide = 500;
+    public static final int worldSide = 300;
     public static final int worldSize = (int)Math.pow(worldSide,2);
     public static final int ammountOfTypes = 2;
 
-    public static final int dotSize = 1; // display var
+    public static final int dotSize = 2; // display var
 
-    public static final float satisfaction = 0.6f; // needed satisfaction
-    public static final int emptyProcent = 5; // the percentage of plots which is set as empty
+    public static final float satisfaction = 0.7f; // needed satisfaction
+    public static final int emptyProcent = 15; // the percentage of plots which is set as empty
 
     long previousTime = nanoTime(); //timer var
     final long interval = 450000000;
@@ -39,16 +39,17 @@ public class Main extends Application {
 
     Plot [] InitializeWorld ()
     {
-        Plot[] world = new Plot[(int)Math.pow(worldSide,2)]; // world var
-        System.out.println("side: " + worldSide + " size: " + worldSize + " word.length: " + world.length);
+        Plot[] world = new Plot[worldSize]; // world var (3)
+        System.out.println("side: " + worldSide + " size: " + worldSize + " world.length: " + world.length);
         Random rng = new Random();
         int n = 0;
         for(int i = 0; i < worldSide; i++)  //initializing world
         {
             for (int j = 0; j < worldSide; j++)
             {
+
                 int r = rng.nextInt(100);
-                if (r <= emptyProcent) world[n] = new Plot(new Position(i, j), 0);
+                if (r < emptyProcent ) world[n] = new Plot(new Position(i, j), 0);
                 else {
                     int t = rng.nextInt(ammountOfTypes) +1;
                     world[n] = new Plot(new Position(i, j), t);
@@ -76,8 +77,8 @@ public class Main extends Application {
         Plot[] world = InitializeWorld();
         Plot[] emptyPlots = FindEmpty(world);
 
-        LogicSystem logS = new LogicSystem();
-        Rendering renderer = new Rendering();
+        LogicSystem logS = new LogicSystem(worldSide, worldSize, satisfaction, world, emptyPlots);
+        Rendering renderer = new Rendering(worldSide, worldSize ,dotSize, world);
         primaryStage.setTitle("neighbours");
 
         Group root = new Group();
@@ -89,8 +90,8 @@ public class Main extends Application {
             public void handle(long currentNanoTime) {
                 long elapsedNanos = currentNanoTime - previousTime;
                 if(elapsedNanos > interval) {
-                    logS.updateWorld(worldSide, worldSize, satisfaction, world, emptyPlots);
-                    renderer.renderWorld(gc,worldSide, worldSize ,dotSize, world);
+                    logS.updateWorld();
+                    renderer.renderWorld(gc);
                     previousTime = currentNanoTime;
                 }
             }

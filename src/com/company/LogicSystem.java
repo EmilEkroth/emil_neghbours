@@ -47,5 +47,5 @@ public class LogicSystem{
     {
         Random rng = new Random();
         return emptyPlots[rng.nextInt(emptyPlots.length)];
-}
+    }
 }

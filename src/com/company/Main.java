@@ -28,7 +28,7 @@ public class Main extends Application {
     public static final int dotSize = 2; // display var
 
     public static final float satisfaction = 0.7f; // needed satisfaction
-    public static final int emptyProcent = 15; // the percentage of plots which is set as empty
+    public static final float emptyProcent = 0.1f; // the percentage of plots which is set as empty
 
     long previousTime = nanoTime(); //timer var
     final long interval = 450000000;
@@ -43,19 +43,32 @@ public class Main extends Application {
         System.out.println("side: " + worldSide + " size: " + worldSize + " world.length: " + world.length);
         Random rng = new Random();
         int n = 0;
+        int t = 1;
         for(int i = 0; i < worldSide; i++)  //initializing world
         {
             for (int j = 0; j < worldSide; j++)
             {
-
-                int r = rng.nextInt(100);
-                if (r < emptyProcent ) world[n] = new Plot(new Position(i, j), 0);
+                int e = (int)(worldSize*emptyProcent);
+                if(n < e)  world[n] = new Plot(new Position(i,j), 0);
                 else {
-                    int t = rng.nextInt(ammountOfTypes) +1;
-                    world[n] = new Plot(new Position(i, j), t);
+                    if(n>=((float)((worldSize-e)/ammountOfTypes)*t) + e) t++;
+
+                    world[n]= new Plot(new Position(i,j), t);
                 }
                 n++;
             }
+        }
+        return world;
+    }
+
+    Plot [] ShuffleWorld (Plot[] world, Plot[] emptyPlots)
+    {
+        Random rng = new Random();
+        for (int i = 0; i < world.length; i++)
+        {
+            int n = rng.nextInt(worldSize);
+            world[i].SwitchPosition(world[n], emptyPlots);
+
         }
         return world;
     }
@@ -76,6 +89,7 @@ public class Main extends Application {
 
         Plot[] world = InitializeWorld();
         Plot[] emptyPlots = FindEmpty(world);
+        world = ShuffleWorld(world, emptyPlots);
 
         LogicSystem logS = new LogicSystem(worldSide, worldSize, satisfaction, world, emptyPlots);
         Rendering renderer = new Rendering(worldSide, worldSize ,dotSize, world);

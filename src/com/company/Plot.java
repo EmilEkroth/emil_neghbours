@@ -65,7 +65,13 @@ class Plot
 
         for(int i = 0; i < emptyPlots.length; i++)
         {
-            if (emptyPlots[i] == otherPlot) emptyPlots[i] = this;
+            if (emptyPlots[i] == otherPlot)
+            {
+                emptyPlots[i] = this;
+            } else if (emptyPlots[i] == this)
+            {
+                emptyPlots[i] = otherPlot;
+            }
         }
 
         ColorCorrect();
